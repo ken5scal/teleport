@@ -136,20 +136,21 @@
   revision = "954f16e8b9ef0e5d5189456aa4c1202758e04f17"
 
 [[projects]]
-  digest = "1:965fbd400d848bd307bb0103cb0b25ff8c631c741de707245acfb04d55513d58"
+  digest = "1:272e1c861ec1c8f9799f40b9a3fab037a927475b8c9771f738e6cedca6ca9f28"
   name = "github.com/coreos/etcd"
   packages = [
-    "client",
-    "pkg/pathutil",
-    "pkg/srv",
+    "auth/authpb",
+    "clientv3",
+    "etcdserver/api/v3rpc/rpctypes",
+    "etcdserver/etcdserverpb",
+    "mvcc/mvccpb",
     "pkg/tlsutil",
     "pkg/transport",
     "pkg/types",
-    "version",
   ]
   pruneopts = "NUT"
-  revision = "9d43462d174c664f5edf313dec0de31e1ef4ed47"
-  version = "v3.2.6"
+  revision = "fca8add78a9d926166eb739b8e4a124434025ba3"
+  version = "v3.3.9"
 
 [[projects]]
   digest = "1:1aa38a8ebe73140ac5458aeed39a99ec8c955d64ced9ae74c0c4f41254d6dbd2"
@@ -273,10 +274,12 @@
   revision = "811b1089cde9dad18d4d0c2d09fbdbf28dbd27a5"
 
 [[projects]]
-  digest = "1:1b3dd24f14a5280710fc7a3aa2480b6e4d20fdfc905841de9a3aa2aa2f1d4ee9"
+  digest = "1:acba7f3d06725b78c6999c2ba6c40b80539c10346fe37b4681072f1666c87d0c"
   name = "github.com/gogo/protobuf"
   packages = [
+    "gogoproto",
     "proto",
+    "protoc-gen-gogo/descriptor",
     "sortkeys",
   ]
   pruneopts = "NUT"
@@ -754,14 +757,6 @@
   revision = "eb799ce68da4150b16ff5d0c89a24e2a2ad993d8"
 
 [[projects]]
-  branch = "master"
-  digest = "1:da0989e0a6b3a3d291350cfc9ce9624cd8318360c1ce527811bb33a78f647170"
-  name = "github.com/ugorji/go"
-  packages = ["codec"]
-  pruneopts = "NUT"
-  revision = "5efa3251c7f7d05e5d9704a69a984ec9f1386a40"
-
-[[projects]]
   digest = "1:7f329054afdba49541df48ad90c196b77aa680124a9cd5352e234b774c32f89b"
   name = "github.com/vulcand/predicate"
   packages = [
@@ -816,20 +811,21 @@
   revision = "b2aa35443fbc700ab74c586ae79b81c171851023"
 
 [[projects]]
-  digest = "1:b666336e217c76208ff1bac6cd45b7435b900f5eb46cb05f3cde84a2dad98803"
+  branch = "master"
+  digest = "1:47a2761ead778ee220541a87da1cff9a09023664d4c2ecb3dd4eb8a30583e542"
   name = "golang.org/x/net"
   packages = [
     "context",
+    "http/httpguts",
     "http2",
     "http2/hpack",
     "idna",
     "internal/timeseries",
-    "lex/httplex",
     "trace",
     "websocket",
   ]
   pruneopts = "NUT"
-  revision = "48359f4f600b3a2d5cf657458e3f940021631a56"
+  revision = "8a410e7b638dca158bf9e766925842f6651ff828"
 
 [[projects]]
   branch = "master"
@@ -875,28 +871,40 @@
   revision = "ee236bd376b077c7a89f260c026c4735b195e459"
 
 [[projects]]
-  digest = "1:047c3a97627c8873dfa6d7e016356f7b5f5b2724eaf8f9b6375aa1573227448f"
+  digest = "1:3adb043907fccd1aeeebe8ad20d3769975a97336a712efd4a0bee076d9f7de0c"
   name = "google.golang.org/grpc"
   packages = [
     ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
     "codes",
     "connectivity",
     "credentials",
-    "grpclb/grpc_lb_v1",
+    "encoding",
+    "encoding/proto",
     "grpclog",
+    "health/grpc_health_v1",
     "internal",
+    "internal/backoff",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/transport",
     "keepalive",
     "metadata",
     "naming",
     "peer",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
     "stats",
     "status",
     "tap",
-    "transport",
   ]
   pruneopts = "NUT"
-  revision = "b3ddf786825de56a4178401b7e174ee332173b66"
-  version = "v1.5.2"
+  revision = "32fb0ac620c32ba40a4626ddf94d90d12cce3455"
+  version = "v1.14.0"
 
 [[projects]]
   digest = "1:67ae56e0579de0f16006ee42cc42daaaacefcfd36324ba00540f62fe42fc64df"
@@ -1088,7 +1096,7 @@
     "github.com/beevik/etree",
     "github.com/boltdb/bolt",
     "github.com/codahale/hdrhistogram",
-    "github.com/coreos/etcd/client",
+    "github.com/coreos/etcd/clientv3",
     "github.com/coreos/etcd/pkg/transport",
     "github.com/coreos/go-oidc/jose",
     "github.com/coreos/go-oidc/oauth2",
@@ -1146,6 +1154,8 @@
     "golang.org/x/text/encoding",
     "golang.org/x/text/encoding/unicode",
     "google.golang.org/grpc",
+    "google.golang.org/grpc/codes",
+    "google.golang.org/grpc/status",
     "gopkg.in/check.v1",
     "gopkg.in/yaml.v2",
     "k8s.io/api/certificates/v1beta1",
